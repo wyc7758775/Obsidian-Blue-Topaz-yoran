@@ -5627,6 +5627,7 @@ body.all-dark-pdf .print,
   --background-primary-alt: var(--background-primary-alt-bg-4-bt,#444444);
   --background-secondary: var(--background-secondary-bg-4-bt,#151515);
   --background-secondary-alt: var(--background-secondary-alt-bg-4-bt,#000000);
+  --background-view-content: #202020;
   --background-modifier-border: #343434;
   --background-modifier-success: #539126;
   --background-modifier-success-rgb: 83, 145, 38;
@@ -5971,6 +5972,7 @@ body.all-dark-pdf .print,
   --background-primary-alt: var(--background-primary-alt-bg-4-bt,#e9e9e9);
   --background-secondary: var(--background-secondary-bg-4-bt,#fcfcfc);
   --background-secondary-alt: var(--background-secondary-alt-bg-4-bt,#f3f3f3);
+  --background-view-content: #f1f1f1;
 
   --background-modifier-border: #dddddd;
   --background-modifier-form-field: #fff;
@@ -14353,6 +14355,7 @@ body.bt-status-on .status-bar {
   color: var(--status-bar-text-color);
   border-top: 1px solid var(--panel-border-color);
   background-color: var(--status-bar-bg);
+  display: none;
 }
 
 .is-translucent .status-bar {
@@ -21819,7 +21822,7 @@ body:not(.color-scheme-options-simplicity-topaz) .workspace-tabs {
 
 
 .workspace-tab-header-container {
-  background: var(--background-secondary-alt);
+  background: var(--background-view-content);
 }
 
 body.background-settings-workplace-background-image .workspace-tab-header-container,
@@ -21921,9 +21924,14 @@ body:not(.is-focused):not(.is-frameless) .workspace-split.mod-root .workspace-ta
 .workspace-tab-header.is-after-active,
 .workspace-split.mod-right-split .workspace-tabs .workspace-leaf,
 .workspace-split.mod-left-split .workspace-tabs .workspace-leaf {
-  background-color: var(--background-secondary);
+  padding: 4px;
+  background-color: var(--background-view-content);
+  padding-bottom: 8px;
 }
-
+.workspace-leaf-content {
+  background-color: var(--background-primary) !important;
+  border-radius: 8px !important;
+}
 
 .view-header {
   border-top: none;
@@ -21940,7 +21948,20 @@ body.color-scheme-options-lillimon-topaz .view-header {
 }
 
 .workspace-split.mod-root .view-content {
+  padding: 4px !important;
+  padding-bottom: 8px !important;
+  background-color: var(--background-view-content);
+}
+
+.workspace-split.mod-root .view-content  .markdown-reading-view {
+  border-radius: 8px;
   background-color: var(--background-primary);
+}
+.workspace-sidedock-vault-profile {
+  margin: 4px !important;
+  border-radius: 8px;
+  border: none !important;
+  background-color: var(--background-primary) !important;
 }
 
 :is(.markdown-preview-view,.markdown-rendered),
@@ -28667,6 +28688,10 @@ body.underline-tab-style .workspace-split:not(.mod-left-split):not(.mod-right-sp
 body.underline-tab-style .workspace-split:not(.mod-left-split):not(.mod-right-split) .workspace-tab-header-container-inner .workspace-tab-header::after {
   display: none;
 }
+.workspace-tab-header::before, .workspace-tab-header::after {
+  content: '';
+  display: none;
+}
 body.underline-tab-style .workspace-split:not(.mod-left-split):not(.mod-right-split) .workspace-tab-header-container-inner .workspace-tab-header.is-active {
   border-radius: 0;
   border-bottom: 2px solid var(--text-accent);
@@ -28728,6 +28753,9 @@ body.safari-tab-style .mod-root:not(.mod-left-split):not(.mod-right-split) .work
 
 body.safari-tab-style .workspace .mod-root .workspace-tab-header-inner::after {
   display: none;
+}
+.workspace .mod-root .workspace-tab-header {
+  border-radius: 8px !important;
 }
 
 body.safari-tab-style .mod-root:not(.mod-left-split):not(.mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active {
@@ -29712,6 +29740,13 @@ body.enable-alternative-checkboxes li[data-task=U] > p > input:checked {
   justify-content: start !important;
 }
 
+/* 文件夹 */
+.tree-item.nav-folder:not(.tree-item-children *) {
+  border-bottom: 1px solid var(--background-gray);
+  border-top: 1px solid var(--background-gray);
+  border-right: 1px solid var(--background-gray);
+  margin-bottom: 2px;
+}
 .tree-item.nav-folder:not(.tree-item-children *):nth-child(1) {
   border-left: 6px solid #4ECDC4 !important; /* 青绿色 - Teal */
 }
