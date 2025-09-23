@@ -5627,7 +5627,7 @@ body.all-dark-pdf .print,
   --background-primary-alt: var(--background-primary-alt-bg-4-bt,#444444);
   --background-secondary: var(--background-secondary-bg-4-bt,#151515);
   --background-secondary-alt: var(--background-secondary-alt-bg-4-bt,#000000);
-  --background-view-content: #202020;
+  --background-view-content: var(--background-secondary-bg-4-bt,#151515);
   --background-modifier-border: #343434;
   --background-modifier-success: #539126;
   --background-modifier-success-rgb: 83, 145, 38;
@@ -27497,6 +27497,9 @@ body:not(.remove-selectionbackground) .markdown-source-view.mod-cm6 .cm-editor .
 .clickable-icon:active,
 .clickable-icon:hover {
   background-color: var(--theme-color-translucent-015);
+}
+.sidebar-toggle-button.mod-right {
+  background: var(--background-view-content) !important;
 }
 
 .workspace.is-left-sidedock-open .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button .clickable-icon,
