@@ -21950,7 +21950,6 @@ body.color-scheme-options-lillimon-topaz .view-header {
 .workspace-split.mod-root .view-content {
   padding: 4px !important;
   padding-bottom: 8px !important;
-  background-color: var(--background-view-content);
 }
 
 .workspace-split.mod-root .view-content  .markdown-reading-view {
